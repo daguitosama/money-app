@@ -34,7 +34,7 @@ jobs:
             - name: Run database migrations
               env:
                   DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
-              run: pnpm dlx node scripts/migrate.js # or just "node scripts/migrate.js" if you have "type": "module" and shebang
+              run: node scripts/migrate.js # or just "node scripts/migrate.js" if you have "type": "module" and shebang
 
             - name: Deploy to Cloudflare Workers
               uses: cloudflare/wrangler-action@v3
