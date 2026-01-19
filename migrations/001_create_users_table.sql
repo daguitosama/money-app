@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id          BIGSERIAL PRIMARY KEY,
     name        TEXT NOT NULL,
     email       TEXT NOT NULL UNIQUE,
@@ -6,5 +6,4 @@ CREATE TABLE users (
     created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- Optional but very useful indexes
-CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
