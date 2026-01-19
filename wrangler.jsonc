@@ -4,15 +4,25 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-react-router-app",
+	"name": "money-app",
 	"compatibility_date": "2025-04-04",
 	"main": "./workers/app.ts",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"vars": {
-		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
+		"DATABASE_URL": "postgres://postgres:ryfcaj-wefwi0-zykhUc@localhost:5432/money"
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "7ee05a16af94421990d8b7c22e5bcfc6",
+			"localConnectionString": "postgres://postgres:ryfcaj-wefwi0-zykhUc@localhost:5432/money"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

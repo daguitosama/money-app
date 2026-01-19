@@ -1,17 +1,22 @@
+import { dbContext } from "~/context";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+    return [{ title: "New React Router App" }, { name: "description", content: "Welcome to React Router!" }];
 }
 
-export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
+export async function loader({ context }: Route.LoaderArgs) {
+    const sql = dbContext.get(context);
+    const r = await sql`select * from users;`;
+    return { r };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  return <Welcome message={loaderData.message} />;
+    return (
+        <div>
+            <pre>
+                <code>{JSON.stringify(loaderData.r, null, 2)}</code>
+            </pre>
+        </div>
+    );
 }
