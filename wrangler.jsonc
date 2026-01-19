@@ -10,9 +10,6 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"vars": {
-		"DATABASE_URL": "postgres://postgres:ryfcaj-wefwi0-zykhUc@localhost:5432/money"
-	},
 	"observability": {
 		"enabled": true
 	},
