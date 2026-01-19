@@ -10,6 +10,9 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
+	"placement": {
+		"mode": "smart"
+	},
 	"observability": {
 		"enabled": true
 	},
