@@ -18,8 +18,6 @@ jobs:
 
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
-              with:
-                  version: 10 # ← or 'latest', or match your local (check package.json "packageManager": "pnpm@10.x.x")
 
             - name: Setup Node.js
               uses: actions/setup-node@v4
